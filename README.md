@@ -1,1 +1,1 @@
-# kursach_school
+# Simple School Manager
