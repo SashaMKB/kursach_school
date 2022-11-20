@@ -5,11 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class MainController {
+public class StudentCardController {
 
-    @GetMapping("/")
-    public String home(Model model) {
-        model.addAttribute("title", "Home page");
-        return "home";
+    @GetMapping("/student-card")
+    public String studentCardMain(Model model) {
+        return "student-Card-Main";
     }
 }
