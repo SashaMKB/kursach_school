@@ -6,7 +6,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
 </head>
 <body>
-<div th:insert="blocks/header :: header"></div>
-    <p th:text="'Hello, ' + ${title} + '!'" />
+<header th:insert="blocks/header :: header"></header>
+<div>
+    <h1>Карточки ученика</h1>
+    <div th:each="el: ${students}" class ="alert alert-info mt-2">
+        <h3 th:text="${el.firstName}"/>
+        <p th:text="${el.secondName}"/>
+        <a th:href=" '/student-card/ +${el.id}}'">Детальнее</a>
+    </div>
+</div>
+
 </body>
 </html>
