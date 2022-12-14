@@ -15,6 +15,6 @@ private StudentRepository studentRepository;
     public String home(Model model) {
        Iterable<Student> students = studentRepository.findAll();
        model.addAttribute("students",students);
-       return "home";
+       return "/home";
     }
 }

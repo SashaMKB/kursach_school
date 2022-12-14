@@ -10,8 +10,8 @@
 <div>
     <h1>Карточки ученика</h1>
     <div th:each="el: ${students}" class ="alert alert-info mt-2">
-        <h3 th:text="${el.firstName}"/>
-        <p th:text="${el.secondName}"/>
+        <h3 th:text="${el.studentFirstName}"></h3>
+        <p th:text="${el.studentSecondName}"></p>
         <a th:href=" '/student-card/ +${el.id}}'">Детальнее</a>
     </div>
 </div>

@@ -11,8 +11,20 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String firstName,secondName,surName,phoneNumber;
-    //private int phoneNumber;
+    public Student() {
+    }
+
+    public Student(String studentFirstName, String studentSecondName, String studentSurName, String studentNum, String studentCourse, String classDay, String classTime) {
+        this.studentFirstName = studentFirstName;
+        this.studentSecondName = studentSecondName;
+        this.studentSurName = studentSurName;
+        this.studentNum = studentNum;
+        this.studentCourse = studentCourse;
+        this.classDay = classDay;
+        this.classTime = classTime;
+    }
+
+    private String studentFirstName,studentSecondName,studentSurName,studentNum,studentCourse,classDay,classTime;
 
     public Long getId() {
         return id;
@@ -22,35 +34,59 @@ public class Student {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getStudentFirstName() {
+        return studentFirstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setStudentFirstName(String studentFirstName) {
+        this.studentFirstName = studentFirstName;
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getStudentSecondName() {
+        return studentSecondName;
     }
 
-    public String getSurName() {
-        return surName;
+    public String getStudentSurName() {
+        return studentSurName;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public void setStudentSurName(String studentSurName) {
+        this.studentSurName = studentSurName;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getStudentNum() {
+        return studentNum;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setStudentNum(String studentNum) {
+        this.studentNum = studentNum;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setStudentSecondName(String studentSecondName) {
+        this.studentSecondName = studentSecondName;
+    }
+
+    public String getStudentCourse() {
+        return studentCourse;
+    }
+
+    public void setStudentCourse(String studentCourse) {
+        this.studentCourse = studentCourse;
+    }
+
+    public String getClassDay() {
+        return classDay;
+    }
+
+    public void setClassDay(String classDay) {
+        this.classDay = classDay;
+    }
+
+    public String getClassTime() {
+        return classTime;
+    }
+
+    public void setClassTime(String classTime) {
+        this.classTime = classTime;
     }
 }
