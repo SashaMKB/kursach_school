@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:text="${title}"></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div>
+  <h1>Students Cards</h1>
+  <div th:each="el : ${student}" class ="alert alert-info mt-2">
+    <h3 th:text="${el.studentFirstName}"></h3>
+    <p th:text="${el.studentSecondName}"></p>
+    <p th:text="${el.studentSurName}"></p>
+    <a class="btn btn-primary" th:href=" '/student-card/' + ${el.id} + '/edit'">Edit</a>
+    <form th:action=" '/student-card/' + ${el.id} + '/remove'" method="post">
+      <button class="btn btn-primary" type="submit">Delete</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
