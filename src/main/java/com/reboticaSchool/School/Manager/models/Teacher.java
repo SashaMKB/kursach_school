@@ -1,9 +1,8 @@
 package com.reboticaSchool.School.Manager.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Teacher {
@@ -11,8 +10,20 @@ public class Teacher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @OneToMany
+    private List<Student> students;
+
+    public Teacher() {
+    }
+
+    public Teacher(String firstName, String secondName, String surName, String phoneNumber) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.surName = surName;
+        this.phoneNumber = phoneNumber;
+    }
+
     private String firstName,secondName,surName,phoneNumber;
-    //private int phoneNumber;
 
     public Long getId() {
         return id;

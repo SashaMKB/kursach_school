@@ -11,8 +11,17 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String firstName,secondName,surName,phoneNumber;
-    //private int phoneNumber;
+    private String clientName,clientLastName,clientSurname,clientNum;
+
+    public Client() {
+    }
+
+    public Client(String clientName, String clientLastName, String clientSurname, String clientNum) {
+        this.clientName = clientName;
+        this.clientLastName = clientLastName;
+        this.clientSurname = clientSurname;
+        this.clientNum = clientNum;
+    }
 
     public Long getId() {
         return id;
@@ -22,35 +31,35 @@ public class Client {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getClientName() {
+        return clientName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getClientLastName() {
+        return clientLastName;
     }
 
-    public String getSurName() {
-        return surName;
+    public void setClientLastName(String clientLastName) {
+        this.clientLastName = clientLastName;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public String getClientSurname() {
+        return clientSurname;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public void setClientSurname(String clientSurname) {
+        this.clientSurname = clientSurname;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public String getClientNum() {
+        return clientNum;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setClientNum(String clientNum) {
+        this.clientNum = clientNum;
     }
 }

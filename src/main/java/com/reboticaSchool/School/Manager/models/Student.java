@@ -1,9 +1,6 @@
 package com.reboticaSchool.School.Manager.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Student {
@@ -11,10 +8,15 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @ManyToOne
+    private Teacher teacher;
+
+
     public Student() {
     }
 
-    public Student(String studentFirstName, String studentSecondName, String studentSurName, String studentNum, String studentCourse, String classDay, String classTime) {
+    public Student(String studentFirstName, String studentSecondName, String studentSurName, String studentNum, String studentCourse, String classDay, String classTime,Teacher teacher) {
+        this.teacher = teacher;
         this.studentFirstName = studentFirstName;
         this.studentSecondName = studentSecondName;
         this.studentSurName = studentSurName;

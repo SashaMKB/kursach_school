@@ -8,11 +8,11 @@
 <body>
 <header th:insert="blocks/header :: header"></header>
 <div>
-    <h1>Students Cards</h1>
-    <div th:each="el: ${students}" class ="alert alert-info mt-2">
-        <h3 th:text="${el.studentFirstName}"></h3>
-        <p th:text="${el.studentSecondName}"></p>
-        <a th:href=" '/student-card/' + ${el.id}">More</a>
+    <h1>Teachers Cards</h1>
+    <div th:each="el: ${teachers}" class ="alert alert-info mt-2">
+        <h3 th:text="${el.firstName}"></h3>
+        <p th:text="${el.secondName}"></p>
+        <a th:href=" '/teacher-card/' + ${el.id}">More</a>
     </div>
 </div>
 

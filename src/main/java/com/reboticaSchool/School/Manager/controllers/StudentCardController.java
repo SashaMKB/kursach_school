@@ -1,7 +1,11 @@
 package com.reboticaSchool.School.Manager.controllers;
 
+import com.reboticaSchool.School.Manager.models.Client;
 import com.reboticaSchool.School.Manager.models.Student;
+import com.reboticaSchool.School.Manager.models.Teacher;
+import com.reboticaSchool.School.Manager.repo.ClientRepository;
 import com.reboticaSchool.School.Manager.repo.StudentRepository;
+import com.reboticaSchool.School.Manager.repo.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,21 +22,41 @@ public class StudentCardController {
 
     @Autowired
     private StudentRepository studentRepository;
+    @Autowired
+    private ClientRepository clientRepository;
+    @Autowired
+    private TeacherRepository teacherRepository;
     @GetMapping("/student-card")
     public String studentCardMain(Model model) {
+
         return "student-Card-Main";
     }
 
     @PostMapping("/student-card")
-    public String studentCardAdd(@RequestParam String studentFirstName,@RequestParam String studentSecondName,@RequestParam String studentSurName,@RequestParam String studentNum,@RequestParam String studentCourse,@RequestParam String classDay,@RequestParam String classTime, Model model){
-        Student student = new Student(studentFirstName,studentSecondName,studentSurName,studentNum,studentCourse,classTime,classDay);
+    public String studentCardAdd(@RequestParam String studentFirstName,
+                                 @RequestParam String studentSecondName,
+                                 @RequestParam String studentSurName,
+                                 @RequestParam String studentNum,
+                                 @RequestParam String studentCourse,
+                                 @RequestParam String classDay,
+                                 @RequestParam String classTime,
+                                 @RequestParam String clientName,
+                                 @RequestParam String clientLastName,
+                                 @RequestParam String clientSurname,
+                                 @RequestParam String clientNum,
+                                 @RequestParam Teacher teacherId,    // < - ?
+                                 Model model){
+
+        Student student = new Student(studentFirstName,studentSecondName,studentSurName,studentNum,studentCourse,classTime,classDay,teacherId);
+        Client client = new Client(clientName,clientLastName,clientSurname,clientNum);
         studentRepository.save(student);
+        clientRepository.save(client);
         return "redirect:/";
     }
     @GetMapping("/student-card/{id}")
     public String studentDetails(@PathVariable(value = "id") long id, Model model) {
         if (!studentRepository.existsById(id)) {
-            return "redirect:/blog";
+            return "redirect:/";
     }
 
         Optional<Student> student = studentRepository.findById(id);
@@ -45,7 +69,7 @@ public class StudentCardController {
     @GetMapping("/student-card/{id}/edit")
     public String studentEdit(@PathVariable(value = "id") long id, Model model) {
         if (!studentRepository.existsById(id)) {
-            return "redirect:/blog";
+            return "redirect:/";
         }
 
         Optional<Student> student = studentRepository.findById(id);
@@ -56,7 +80,14 @@ public class StudentCardController {
     }
 
     @PostMapping("/student-card/{id}/edit")
-    public String studentCardUpdate(@PathVariable(value = "id") long id,@RequestParam String studentFirstName,@RequestParam String studentSecondName,@RequestParam String studentSurName,@RequestParam String studentNum,@RequestParam String studentCourse,@RequestParam String classDay,@RequestParam String classTime, Model model){
+    public String studentCardUpdate(@PathVariable(value = "id") long id,
+                                    @RequestParam String studentFirstName,
+                                    @RequestParam String studentSecondName,
+                                    @RequestParam String studentSurName,
+                                    @RequestParam String studentNum,
+                                    @RequestParam String studentCourse,
+                                    @RequestParam String classDay,
+                                    @RequestParam String classTime, Model model){
         Student student = studentRepository.findById(id).orElseThrow();
         student.setStudentFirstName(studentFirstName);
         student.setStudentSecondName(studentSecondName);
