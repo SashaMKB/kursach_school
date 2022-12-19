@@ -50,7 +50,7 @@
 
                         <div class="col-12">
                             <label for="number" class="form-label">Phone number</label>
-                            <input type="tel" class="form-control" id="number" name="studentNum"  placeholder="8(9XX)-XXX-XX-XX" required="">
+                            <input type="tel" class="form-control" id="number" name="studentNum" th:value="${el.studentNum}" placeholder="8(9XX)-XXX-XX-XX" required="">
                             <div class="invalid-feedback">
                                 Please enter a valid phone number.
                             </div>
@@ -59,7 +59,7 @@
 
                         <div class="col-md-5">
                             <label for="country" class="form-label">Course</label>
-                            <select class="form-select" id="country" name="studentCourse" required="">
+                            <select class="form-select" id="country" name="studentCourse" th:value="${el.studentCourse}" required="">
                                 <option value="">Choose...</option>
                                 <option>Python</option>
                                 <option>Blender</option>
@@ -73,7 +73,7 @@
 
                         <div class="col-md-4">
                             <label for="dayoftheweek" class="form-label">Day of the week</label>
-                            <select class="form-select" id="dayoftheweek" name="classDay" required="">
+                            <select class="form-select" id="dayoftheweek" name="classDay" th:value="${el.classDay}" required="">
                                 <option value="">Choose...</option>
                                 <option>Monday</option>
                                 <option>Tuesday</option>
@@ -90,7 +90,7 @@
 
                         <div class="col-md-3">
                             <label for="classtime" class="form-label">Class time</label>
-                            <select class="form-select" id="classtime" name="classTime" required="">
+                            <select class="form-select" id="classtime" name="classTime" th:value="${el.classTime}" required="">
                                 <option value="">Choose...</option>
                                 <option>14:00</option>
                                 <option>15:15</option>
@@ -107,7 +107,7 @@
                         <h4 class="mb-3">Client Information</h4>
                         <div class="col-sm-6">
                             <label for="firstName" class="form-label">First name</label>
-                            <input type="text" class="form-control" id="firstNameClient" name="clientName" placeholder="" value="" required="">
+                            <input type="text" class="form-control" id="firstNameClient" name="clientName"  placeholder="" value="" required="">
                             <div class="invalid-feedback">
                                 Valid first name is required.
                             </div>
@@ -115,7 +115,7 @@
 
                         <div class="col-sm-6">
                             <label for="lastName" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="lastNameClient"  name="clientLastName" placeholder="" value="" required="">
+                            <input type="text" class="form-control" id="lastNameClient"  name="clientLastName"  placeholder="" value="" required="">
                             <div class="invalid-feedback">
                                 Valid last name is required.
                             </div>
@@ -123,7 +123,7 @@
 
                         <div class="col-12">
                             <label for="address" class="form-label">Surname</label>
-                            <input type="text" class="form-control" id="surnameClient" name="clientSurname" placeholder="" required="">
+                            <input type="text" class="form-control" id="surnameClient" name="clientSurname" placeholder=""  required="">
                             <div class="invalid-feedback">
                                 Please enter surname.
                             </div>
@@ -131,7 +131,7 @@
 
                         <div class="col-12">
                             <label for="number" class="form-label">Phone number</label>
-                            <input type="tel" class="form-control" id="numberClient" name="clientNum" placeholder="+7(9XX)-XXX-XX-XX" required="">
+                            <input type="tel" class="form-control" id="numberClient" name="clientNum"  placeholder="+7(9XX)-XXX-XX-XX" required="">
                             <div class="invalid-feedback">
                                 Please enter a valid phone number.
                             </div>

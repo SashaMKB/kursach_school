@@ -35,7 +35,7 @@
 
                         <div class="col-sm-6">
                             <label for="lastName" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="lastName" name="secondName" placeholder="" value="" required="">
+                            <input type="text" class="form-control" id="lastName" name="secondName" th:value="${el.secondName}" placeholder="" value="" required="">
                             <div class="invalid-feedback">
                                 Valid last name is required.
                             </div>
@@ -43,7 +43,7 @@
 
                         <div class="col-12">
                             <label for="address" class="form-label">Surname</label>
-                            <input type="text" class="form-control" id="address" name="surName" placeholder="" required="">
+                            <input type="text" class="form-control" id="address" name="surName" th:value="${el.surName}" placeholder="" required="">
                             <div class="invalid-feedback">
                                 Please enter surname.
                             </div>
@@ -51,7 +51,7 @@
 
                         <div class="col-12">
                             <label for="number" class="form-label">Phone number</label>
-                            <input type="tel" class="form-control" id="number" name="phoneNumber"  placeholder="8(9XX)-XXX-XX-XX" required="">
+                            <input type="tel" class="form-control" id="number" name="phoneNumber" th:value="${el.phoneNumber}"  placeholder="8(9XX)-XXX-XX-XX" required="">
                             <div class="invalid-feedback">
                                 Please enter a valid phone number.
                             </div>

@@ -1,5 +1,7 @@
 package com.reboticaSchool.School.Manager.models;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,6 +11,7 @@ public class Student {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(columnDefinition = "1")
     private Teacher teacher;
 
 
@@ -87,6 +90,7 @@ public class Student {
     public String getClassTime() {
         return classTime;
     }
+
 
     public void setClassTime(String classTime) {
         this.classTime = classTime;

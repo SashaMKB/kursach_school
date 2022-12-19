@@ -10,9 +10,10 @@
 <div>
     <h1>Teacher Card</h1>
     <div th:each="el : ${teacher}" class ="alert alert-info mt-2">
-        <h3 th:text="${el.firstName}"></h3>
-        <p th:text="${el.secondName}"></p>
-        <p th:text="${el.surName}"></p>
+        <h1 th:text="${el.firstName}"></h1>
+        <h1 th:text="${el.secondName}"></h1>
+        <h1 th:text="${el.surName}"></h1>
+        <h4 th:text="${el.phoneNumber}"></h4>
         <a class="btn btn-primary" th:href=" '/teacher-card/' + ${el.id} + '/edit'">Edit</a>
         <form th:action=" '/teacher-card/' + ${el.id} + '/remove'" method="post">
             <button class="btn btn-primary" type="submit">Delete</button>

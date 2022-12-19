@@ -44,10 +44,9 @@ public class StudentCardController {
                                  @RequestParam String clientLastName,
                                  @RequestParam String clientSurname,
                                  @RequestParam String clientNum,
-                                 @RequestParam Teacher teacherId,    // < - ?
+                                 @RequestParam(required = false)  Teacher teacherId,    // < - ?
                                  Model model){
-
-        Student student = new Student(studentFirstName,studentSecondName,studentSurName,studentNum,studentCourse,classTime,classDay,teacherId);
+        Student student = new Student(studentFirstName, studentSecondName, studentSurName, studentNum, studentCourse, classTime, classDay, teacherId);
         Client client = new Client(clientName,clientLastName,clientSurname,clientNum);
         studentRepository.save(student);
         clientRepository.save(client);
@@ -57,6 +56,7 @@ public class StudentCardController {
     public String studentDetails(@PathVariable(value = "id") long id, Model model) {
         if (!studentRepository.existsById(id)) {
             return "redirect:/";
+
     }
 
         Optional<Student> student = studentRepository.findById(id);
@@ -87,7 +87,8 @@ public class StudentCardController {
                                     @RequestParam String studentNum,
                                     @RequestParam String studentCourse,
                                     @RequestParam String classDay,
-                                    @RequestParam String classTime, Model model){
+                                    @RequestParam String classTime,
+                                    Model model){
         Student student = studentRepository.findById(id).orElseThrow();
         student.setStudentFirstName(studentFirstName);
         student.setStudentSecondName(studentSecondName);
