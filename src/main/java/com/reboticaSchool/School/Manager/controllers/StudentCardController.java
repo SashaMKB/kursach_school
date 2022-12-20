@@ -88,6 +88,7 @@ public class StudentCardController {
                                     @RequestParam String studentCourse,
                                     @RequestParam String classDay,
                                     @RequestParam String classTime,
+                                    @RequestParam(required = false)  Teacher teacherId,
                                     Model model){
         Student student = studentRepository.findById(id).orElseThrow();
         student.setStudentFirstName(studentFirstName);
@@ -97,6 +98,7 @@ public class StudentCardController {
         student.setStudentCourse(studentCourse);
         student.setClassDay(classDay);
         student.setClassTime(classTime);
+        student.setTeacher(teacherId);
         studentRepository.save(student);
         return "redirect:/";
     }

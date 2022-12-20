@@ -29,6 +29,14 @@ public class Student {
         this.classTime = classTime;
     }
 
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
     private String studentFirstName,studentSecondName,studentSurName,studentNum,studentCourse,classDay,classTime;
 
     public Long getId() {

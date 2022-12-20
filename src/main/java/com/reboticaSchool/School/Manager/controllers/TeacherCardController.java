@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -82,9 +84,13 @@ public class TeacherCardController {
         return "redirect:/all-teacher-card";
     }
     @PostMapping("/teacher-card/{id}/remove")
-    public String studentCardDelete(@PathVariable(value = "id") long id,Model model){
+    public String studentCardDelete(RedirectAttributes redirectAttributes,@PathVariable(value = "id") long id, Model model) {
         Teacher teacher = teacherRepository.findById(id).orElseThrow();
-        teacherRepository.delete(teacher);
+        try {
+            teacherRepository.delete(teacher);
+        } catch ( Exception e) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Не удалось удалить запись. Обнаружены внешние ссылки.");
+        }
         return "redirect:/all-teacher-card";
     }
 
